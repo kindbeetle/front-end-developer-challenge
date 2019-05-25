@@ -1,0 +1,47 @@
+{
+  "name": "vending-machine",
+  "version": "0.0.1",
+  "description": "Vending machine allows to by different products",
+  "main": "index.ts",
+  "repository": "https://github.com/kysonic/front-end-developer-challenge.git",
+  "author": "Miroshnichenko Anton <anton.miroshnichenko@omnigon.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "BASE_URL=http://localhost:3000 next",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest ./__tests__/**/*.test.js --watch --env=jsdom",
+    "test:upd": "jest ./__tests__/**/*.test.js --watch --env=jsdom --updateSnapshot"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "mobx": "^5.9.4",
+    "mobx-react-lite": "^1.3.2",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-dom": "^16.8.6",
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@types/next": "^8.0.5",
+    "@types/react": "^16.8.18",
+    "@types/react-bootstrap": "^0.32.17",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "jest": "^24.8.0",
+    "react-testing-library": "^7.0.1"
+  }
+}

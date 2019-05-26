@@ -1,0 +1,9 @@
+{
+  "email": "john@doe.com",
+  "profile": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": "33"
+  },
+  "funds": 100
+}

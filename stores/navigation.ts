@@ -1,31 +1,30 @@
 import {observable, action} from 'mobx';
 import axios, {AxiosResponse} from 'axios';
+import {delay} from '../utils';
 
 const BASE_URL = process.env.BASE_URL;
 
-export type ItemType = {
-    id: string,
-    title: string,
-    href: string,
-    items?: ItemType[]
-};
+export interface INavigationItem extends ILink {
+    items?: ILink[]
+}
 
 class NavigationStore {
-    @observable items?: ItemType[] = [];
+    @observable items?: INavigationItem[] = [];
 
-    constructor(items?: ItemType[]) {
+    constructor(items: INavigationItem[]) {
         this.items = items;
     }
 
     @action
-    async fetch(): Promise<ItemType[]> {
+    async fetch(): Promise<INavigationItem[]> {
         const response: AxiosResponse = await axios.get(`${BASE_URL || ''}/static/data/navigation.json`);
+        await delay(300);
         this.setItems(response.data);
         return response.data;
     }
 
     @action
-    setItems(items: ItemType[]): void {
+    setItems(items: INavigationItem[]): void {
         this.items = items;
     }
 }

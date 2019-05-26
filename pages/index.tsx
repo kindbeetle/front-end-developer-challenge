@@ -1,12 +1,29 @@
 import React from 'react';
 import Layout from '../components/layouts/default';
+import HomeGreeting from '../components/modules/HomeGreeting';
+import ArticleStore, {ArticleStoreContext} from '../stores/article';
+import {injectStoreHOC} from '../components/hocs/inject-store';
 
-function Home() {
-    return (
-        <Layout title={"Vending Machine | Index"}>
-            <div>HOME</div>
-        </Layout>
-    )
+interface IHomePageProps {
+    initialState: [IArticle],
+    stores: any
 }
 
-export default Home;
+function HomePage(props: IHomePageProps) {
+    return (
+        <ArticleStoreContext.Provider value={props.stores.articleStore}>
+            <Layout title="Vending Machine | Index">
+                <HomeGreeting />
+            </Layout>
+        </ArticleStoreContext.Provider>
+    );
+}
+
+HomePage.stores = {
+    articleStore: {
+        Store: ArticleStore,
+        initialState: [undefined, 'uruboros-1']
+    }
+};
+
+export default injectStoreHOC(HomePage);

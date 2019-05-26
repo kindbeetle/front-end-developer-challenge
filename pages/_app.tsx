@@ -1,6 +1,7 @@
 import App, { Container } from 'next/app';
 import { NextContext, NextComponentType } from 'next';
 import AppStore, {AppStoreContext} from '../stores/app';
+import {toJS} from 'mobx';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -14,11 +15,10 @@ type VendingMachineAppProps = NextComponentType & {initialState: any};
 class VendingMachineApp extends App<VendingMachineAppProps> {
     static async getInitialProps({ Component, ctx }: INextInitialProps) {
         let pageProps = {};
-        let initialState = {};
         const appStore = new AppStore();
 
         if (typeof appStore.fetch === 'function') {
-            initialState = await appStore.fetch();
+            await appStore.fetch();
         }
 
         if (Component.getInitialProps) {
@@ -30,11 +30,9 @@ class VendingMachineApp extends App<VendingMachineAppProps> {
             baseUrl = `http://${ctx.req.headers.host}`;
         }
 
-        return { pageProps, initialState, baseUrl};
-    }
+        const initialState = toJS(appStore);
 
-    constructor(props: any) {
-        super(props);
+        return { pageProps, initialState, baseUrl};
     }
 
     render() {

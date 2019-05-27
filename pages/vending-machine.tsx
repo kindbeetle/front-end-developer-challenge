@@ -1,12 +1,40 @@
 import React from 'react';
 import Layout from '../components/layouts/default';
+import ProductsStore, {ProductsContext} from '../stores/products';
+import SessionStore, {SessionContext} from '../stores/session';
+import {injectStoreHOC} from '../components/hocs/inject-store';
+import VendingMachine from '../components/modules/VendingMachine/VendingMachine';
 
-function VendingMachinePage() {
+interface IVendingMachinePageProps {
+    initialState: [],
+    stores: {
+        productsStore: ProductsStore
+        sessionStore: SessionStore
+    }
+}
+
+function VendingMachinePage({stores: {productsStore, sessionStore}}: IVendingMachinePageProps) {
+
     return (
-        <Layout title="Vending Machine | Vending Machine">
-            <div>Vending machine </div>
-        </Layout>
+        <ProductsContext.Provider value={productsStore}>
+            <SessionContext.Provider value={sessionStore}>
+                <Layout title="Vending Machine | Vending Machine">
+                    <VendingMachine />
+                </Layout>
+            </SessionContext.Provider>
+        </ProductsContext.Provider>
     )
 }
 
-export default VendingMachinePage;
+VendingMachinePage.stores = {
+    productsStore: {
+        Store: ProductsStore,
+        initialState: []
+    },
+    sessionStore: {
+        Store: SessionStore,
+        initialState: []
+    }
+};
+
+export default injectStoreHOC(VendingMachinePage);

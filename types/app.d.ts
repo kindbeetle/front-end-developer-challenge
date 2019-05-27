@@ -43,3 +43,7 @@ declare interface ISession {
     id: string,
     funds: number
 }
+
+declare interface ICurrencies {
+    [key: string]: number
+}

@@ -3,6 +3,7 @@ import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import {useObserver} from 'mobx-react-lite';
 import {AppStoreContext} from '../../stores/app';
 import {INavigationItem} from '../../stores/navigation';
+import _ from 'lodash';
 
 export function HeaderItem({items, id, href, title}: INavigationItem) {
     if (items && items.length) {
@@ -25,7 +26,8 @@ export type IHeaderProps = {
 }
 
 export default function Header({title}: IHeaderProps) {
-    const {stores: {navigation, user}} = useContext(AppStoreContext);
+    const {stores: {navigationStore, userStore}} = useContext(AppStoreContext);
+
     return (
         <Navbar bg="light" expand="lg">
             <Navbar.Brand href="/">{title}</Navbar.Brand>
@@ -33,16 +35,23 @@ export default function Header({title}: IHeaderProps) {
             {useObserver(() => (
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        {navigation && navigation.items && navigation.items.map &&
-                        navigation.items.map((item: INavigationItem) => (
+                        {navigationStore && navigationStore.items && navigationStore.items.map &&
+                         navigationStore.items.map((item: INavigationItem) => (
                             <HeaderItem key={item.id} {...item} />
-                        ))}
+                         ))}
                     </Nav>
+                    <Nav.Item role="user" className="mr-sm-2">
+                        <NavDropdown id="user" title={userStore.fullName}>
+                            {Object.keys(_.get(userStore, 'user.funds', {})).map((currency: string, id: number) => (
+                                <NavDropdown.Item key={id}>{`${_.get(userStore,`user.funds.${currency}`)} ${currency}`}</NavDropdown.Item>
+                            ))}
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item>Logout</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav.Item>
                 </Navbar.Collapse>
             ))}
-            <Nav.Item role="user" className="mr-sm-2">
-                <span>{`${user.fullName} | ${user.user.funds} $`}</span>
-            </Nav.Item>
+
         </Navbar>
     );
 }

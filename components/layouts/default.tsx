@@ -11,7 +11,7 @@ type IDefaultLayoutProps = {
 };
 
 export default function DefaultLayout(props: IDefaultLayoutProps) {
-    const {stores: {globalState: {isLoading, error}}} = useContext(AppStoreContext);
+    const {stores: {globalStateStore: {isLoading, error}}} = useContext(AppStoreContext);
 
     return (
         <div>

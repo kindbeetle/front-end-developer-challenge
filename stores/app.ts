@@ -4,22 +4,27 @@ import {useStaticRendering} from 'mobx-react-lite';
 import NavigationStore, {INavigationItem} from './navigation';
 import GlobalStateStore from './globalState';
 import UserStore from './user';
+import CurrenciesStore from './currencies';
 import _ from 'lodash';
+// Remove in case of REAL API is available
+import '../utils/mocks';
 
 configure({ enforceActions: 'observed' });
 const isServer: boolean = !process.browser;
 useStaticRendering(isServer);
 
 export type StoresType = {
-    navigation: NavigationStore,
-    globalState: GlobalStateStore,
-    user: UserStore
+    navigationStore: NavigationStore,
+    globalStateStore: GlobalStateStore,
+    userStore: UserStore,
+    currenciesStore: CurrenciesStore
 }
 
 export type InitialStateStoresType = {
-    navigation: INavigationItem[],
-    globalState: any,
-    user: IUser
+    navigationStore: INavigationItem[],
+    globalStateStore: any,
+    userStore: IUser,
+    currenciesStore: ICurrencies
 }
 
 export type InitialStateType = {
@@ -32,19 +37,20 @@ class AppStore {
 
     constructor(InitialState?: InitialStateType) {
         this.stores = {
-            navigation: new NavigationStore(_.get(InitialState, 'stores.navigation.items', [])),
-            globalState: new GlobalStateStore(_.get(InitialState, 'stores.globalState', {})),
-            user: new UserStore(_.get(InitialState, 'stores.user.user', {}))
+            navigationStore: new NavigationStore(_.get(InitialState, 'stores.navigationStore.items', [])),
+            globalStateStore: new GlobalStateStore(_.get(InitialState, 'stores.globalStateStore', {})),
+            userStore: new UserStore(_.get(InitialState, 'stores.userStore.user', {})),
+            currenciesStore: new CurrenciesStore(_.get(InitialState, 'stores.currenciesStore.currencies', {}))
         };
     }
 
     async fetch(): Promise<InitialStateStoresType> {
-        const {stores: {globalState}} = this;
+        const {stores: {globalStateStore}} = this;
 
         const results = await Promise.all(Object.values(this.stores)
                                      .map((store: any): Promise<any> | null => {
             return store.fetch && typeof store.fetch === 'function' ?
-                globalState.fetchErrorHandlerDecorator(store.fetch, store)() : null;
+                globalStateStore.fetchErrorHandlerDecorator(store.fetch, store)() : null;
         }));
 
         const initialState: any = {stores: {}};

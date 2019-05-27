@@ -3,9 +3,6 @@ import {Context, createContext} from 'react';
 import axios, {AxiosResponse} from 'axios';
 import {delay} from '../utils';
 
-const BASE_URL = process.env.BASE_URL;
-
-
 class UserStore {
     @observable user?: IUser;
 
@@ -26,8 +23,8 @@ class UserStore {
     }
 
     @action
-    async fetch(): Promise<IArticle> {
-        const response: AxiosResponse = await axios.get(`${BASE_URL || ''}/static/data/user.json`);
+    async fetch(): Promise<IUser> {
+        const response: AxiosResponse = await axios.get('/user');
         await delay(Math.random() * 1000);
         this.setUser(response.data);
         return response.data;

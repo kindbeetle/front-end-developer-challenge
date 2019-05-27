@@ -12,7 +12,7 @@ interface IHomePageProps {
 function HomePage(props: IHomePageProps) {
     return (
         <ArticleStoreContext.Provider value={props.stores.articleStore}>
-            <Layout title="Vending Machine | Index">
+            <Layout title="Vending Machine | Welcome">
                 <HomeGreeting />
             </Layout>
         </ArticleStoreContext.Provider>

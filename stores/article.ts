@@ -2,8 +2,6 @@ import {observable, action, computed} from 'mobx';
 import axios, {AxiosResponse} from 'axios';
 import {Context, createContext} from 'react';
 
-const BASE_URL = process.env.BASE_URL;
-
 class ArticleStore {
     @observable id?: string;
     @observable article?: IArticle;
@@ -15,7 +13,7 @@ class ArticleStore {
 
     @computed
     get articleURL() {
-        return `${BASE_URL || ''}/static/data/articles/article-${this.id}.json`;
+        return `/articles/${this.id}`;
     }
 
     @action

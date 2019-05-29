@@ -22,6 +22,10 @@ class CurrenciesStore {
         this.setCurrencies(response.data);
         return response.data;
     }
+
+    convertToDollars(currency: string, amount: number) {
+        return this.currencies && this.currencies[currency] * amount;
+    }
 }
 
 export const CurrenciesContext: Context<CurrenciesStore> = createContext(new CurrenciesStore());

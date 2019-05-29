@@ -25,10 +25,14 @@ declare interface IUserProfile {
     age: number
 }
 
+declare interface IFunds {
+    [key: string]: number
+}
+
 declare interface IUser {
     email: string,
     profile: IUserProfile,
-    funds: number
+    funds: IFunds
 }
 
 declare interface IProduct {
@@ -46,4 +50,9 @@ declare interface ISession {
 
 declare interface ICurrencies {
     [key: string]: number
+}
+
+declare interface IResponse {
+    status: number,
+    message: string
 }

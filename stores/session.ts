@@ -2,14 +2,17 @@ import {observable, action} from 'mobx';
 import {Context, createContext} from 'react';
 import axios, {AxiosResponse} from 'axios';
 import {delay} from '../utils';
+import LoadingAndErrorStore, {loadingAndErrorDecorator} from './loadingAndError';
 
-const BASE_URL = process.env.BASE_URL;
-
-class SessionStore {
+class SessionStore extends LoadingAndErrorStore {
     @observable session?: ISession;
 
     constructor(session?: ISession) {
+        super({isLoading: false, error: ''});
         this.session = session;
+        this.createSession = loadingAndErrorDecorator(this.createSession, this, this);
+        this.apply = loadingAndErrorDecorator(this.apply, this, this);
+        this.charge = loadingAndErrorDecorator(this.charge, this, this);
     }
 
     @action
@@ -18,11 +21,37 @@ class SessionStore {
     }
 
     @action
+    increaseSessionFunds(dollarsAmount: number) {
+        if (this.session) {
+            this.session.funds += dollarsAmount;
+        }
+    }
+
+    @action
     async createSession(): Promise<ISession> {
-        const response: AxiosResponse = await axios.put(`${BASE_URL || ''}/session`);
-        await delay(Math.random() * 1000);
-        console.log(response.data);
+        const response: AxiosResponse = await axios.put('/session');
+        await delay(Math.random() * 2000);
         this.setSession(response.data);
+        return response.data;
+    }
+
+    @action
+    async apply(dollarsAmount: number): Promise<IResponse> {
+        const response: AxiosResponse = await axios.put('/session/apply', {dollarsAmount});
+        await delay(Math.random() * 2000);
+        if (dollarsAmount) {
+            this.increaseSessionFunds(dollarsAmount);
+        }
+        return response.data;
+    }
+
+    @action
+    async charge(dollarsAmount: number): Promise<IResponse> {
+        const response: AxiosResponse = await axios.put('/session/charge', {dollarsAmount});
+        await delay(Math.random() * 2000);
+        if (dollarsAmount) {
+            this.increaseSessionFunds(-dollarsAmount);
+        }
         return response.data;
     }
 }

@@ -5,6 +5,7 @@ import NavigationStore, {INavigationItem} from './navigation';
 import GlobalStateStore from './globalState';
 import UserStore from './user';
 import CurrenciesStore from './currencies';
+import {loadingAndErrorDecorator} from './loadingAndError';
 import _ from 'lodash';
 // Remove in case of REAL API is available
 import '../utils/mocks';
@@ -50,7 +51,7 @@ class AppStore {
         const results = await Promise.all(Object.values(this.stores)
                                      .map((store: any): Promise<any> | null => {
             return store.fetch && typeof store.fetch === 'function' ?
-                globalStateStore.fetchErrorHandlerDecorator(store.fetch, store)() : null;
+                loadingAndErrorDecorator(store.fetch, store, globalStateStore)() : null;
         }));
 
         const initialState: any = {stores: {}};

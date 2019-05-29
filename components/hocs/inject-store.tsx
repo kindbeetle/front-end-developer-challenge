@@ -28,6 +28,7 @@ export function injectStoreHOC(WrappedComponent: ReactNodeWithStore): React.Reac
             });
         }
 
+        // @ts-ignore
         return (
             <WrappedComponent stores={stores} {...props} />
         );

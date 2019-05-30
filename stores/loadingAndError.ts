@@ -35,7 +35,7 @@ export function loadingAndErrorDecorator(fetch: Function, context: any, store: a
         } catch (e) {
             store.setIsLoading(false);
             store.setError(e.message);
-            return {};
+            return {error: e.message};
         }
     }
 }

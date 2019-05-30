@@ -38,24 +38,45 @@ export default function VendingMachineControlsForm() {
 
     async function submitForm(e: SyntheticEvent) {
         e.preventDefault();
-        try {
-            await userStore.charge(selectedCurrency, amount);
-        } catch(e) {
+        const chargeResponse = await userStore.charge(selectedCurrency, amount);
+        if (chargeResponse.error) {
             setAmount(0);
-            setFormError(e.message);
+            setFormError(chargeResponse.error);
+            return false;
         }
-        try {
-            const dollars = currenciesStore.convertToDollars(selectedCurrency, amount);
-            if (dollars) {
-                await sessionStore.apply(dollars);
-            }
-        } catch (e) {
+        const dollars = currenciesStore.convertToDollars(selectedCurrency, amount);
+        let applyResponse = {};
+        if (dollars) {
+            applyResponse = await sessionStore.apply(dollars);
+        }
+        if (applyResponse.error) {
             setAmount(0);
             setFormError(e.message);
             // Rolling back user's charge
             await userStore.charge(selectedCurrency, -amount);
+            return false;
         }
         setAmount(0);
+    }
+
+    async function getChangeBack(e: SyntheticEvent) {
+        e.preventDefault();
+        const dollars = sessionStore.session.funds;
+        let applyResponse = {};
+        if (dollars) {
+            applyResponse = await sessionStore.apply(-dollars);
+        }
+        if (applyResponse.error) {
+            setFormError(e.message);
+            return false;
+        }
+        const chargeResponse = await userStore.charge('USD', -dollars);
+        if (chargeResponse.error) {
+            setFormError(chargeResponse.error);
+            // Rolling back session
+            await sessionStore.apply(dollars);
+            return false;
+        }
     }
 
     return useObserver(() => {
@@ -83,7 +104,7 @@ export default function VendingMachineControlsForm() {
             <Form className="VendingMachineControlsForm" onSubmit={submitForm}>
                 {sessionStore && sessionStore.session && !sessionStore.isLoading && (
                     <Form.Group controlId="deposit">
-                        <Form.Text>Deposit: {sessionStore.session.funds}</Form.Text>
+                        <Form.Text>Deposit: {sessionStore.session.funds.toFixed(2)} $</Form.Text>
                     </Form.Group>
                 )}
 
@@ -115,6 +136,9 @@ export default function VendingMachineControlsForm() {
 
                 <Button disabled={!amount} variant="primary" type="submit">
                     Submit
+                </Button>
+                <Button style={ {marginLeft: 10} } disabled={!sessionStore.session.funds} variant="secondary" onClick={getChangeBack}>
+                    Get my money back
                 </Button>
             </Form>
         )

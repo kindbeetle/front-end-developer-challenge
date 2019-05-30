@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {useObserver} from 'mobx-react-lite';
 import {ProductsContext} from '../../../stores/products';
 import {Modal, CardColumns, Card, Button, Spinner} from 'react-bootstrap';
@@ -10,24 +10,24 @@ export default function VendingMachine() {
 
     const [currentProductId, setCurrentProductId] = useState<string>('');
     const [showDialog, setShowDialog] = useState<boolean>(false);
-    let dialogMessage = '';
+    const [dialogMessage, setDialogMessage] = useState<string>('');
 
     async function buyProduct(id: string, price: number, title: string) {
         setCurrentProductId(id);
-        try {
-            await productsStore.buy(id);
-        } catch(e) {
+        const buyResponse = await productsStore.buy(id);
+        if (buyResponse.error) {
+            setDialogMessage('Server error: cannot buy product. Please try again.');
             setShowDialog(true);
-            dialogMessage = 'Server error: cannot buy product';
+            return false;
         }
-        try {
-            await sessionStore.charge(price);
-        } catch (e) {
+        const chargeResponse = await sessionStore.charge(price);
+        if (chargeResponse.error) {
+            setDialogMessage('Server error: cannot save session. Please try again.');
             setShowDialog(true);
-            dialogMessage = 'Server error: save session';
+            return false;
         }
+        setDialogMessage(`You bought ${title}!`);
         setShowDialog(true);
-        dialogMessage = `You bought ${title}!`;
     }
 
     return useObserver(() =>
@@ -47,7 +47,7 @@ export default function VendingMachine() {
                             <Card.Footer>
                                 {!(currentProductId === id && productsStore.isLoading) && (
                                     <Button onClick={() => buyProduct(id, price, title)}
-                                            disabled={!sessionStore.session || sessionStore.session.funds < price}>
+                                            disabled={!sessionStore.session || sessionStore.session.funds < price || sessionStore.isLoading}>
                                         {`Buy "${title}"`}
                                     </Button>
                                 )}
@@ -60,6 +60,17 @@ export default function VendingMachine() {
                         </Card>
                     ))}
                 </CardColumns>
+                <Modal show={showDialog} onHide={() => setShowDialog(false)}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Vending Machine Message</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>{dialogMessage}</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={() => setShowDialog(false)}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </React.Fragment>
         )
     );

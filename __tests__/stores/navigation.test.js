@@ -1,28 +1,16 @@
 import NavigationStore from '../../stores/navigation';
 import axios from 'axios/index';
 import {autorun} from 'mobx/lib/mobx';
-
-const NAVIGATION_INITIAL_DATA = [
-    {
-        "id": "home",
-        "title": "Home",
-        "href": "/"
-    },
-    {
-        "id": "vending-machine",
-        "title": "Vending Machine",
-        "href": "/vending-machine"
-    }
-];
+import navigationJSON from '../../static/data/navigation.json';
 
 jest.mock('axios');
-axios.get.mockResolvedValue({data: NAVIGATION_INITIAL_DATA});
+axios.get.mockResolvedValue({data: navigationJSON});
 
 describe('Test NavigationStore', () => {
     let navigationStore = null;
 
     beforeEach(() => {
-        navigationStore = new NavigationStore(NAVIGATION_INITIAL_DATA);
+        navigationStore = new NavigationStore(navigationJSON);
     });
 
     test('Check initial data', () => {
@@ -39,11 +27,11 @@ describe('Test NavigationStore', () => {
 
     test('Check fetch', async (done) => {
         const data = await navigationStore.fetch();
-        expect(data).toEqual(NAVIGATION_INITIAL_DATA);
+        expect(data).toEqual(navigationJSON);
         autorun(() => {
             expect(navigationStore.items[0].title).toBe('Home');
             expect(axios.get).toHaveBeenCalledTimes(1);
-            expect(axios.get).toHaveBeenCalledWith('/static/data/navigation.json');
+            expect(axios.get).toHaveBeenCalledWith('/navigation');
             done();
         });
     });

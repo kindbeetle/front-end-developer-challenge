@@ -6,7 +6,7 @@ The machine can accept any currency and sell any products. The machine should be
 Main goals:
 
 1. Design common data model, required for MVP development.
-2. Prototype, without fanaticism, UI, which allows wo use basic functionality of the machine.
+2. Prototype, without fanaticism, UI, which allows to use basic functionality of the machine.
 3. Develop at least one UI-interaction, which user expects working with the machine. 
 
 What is not necessary:

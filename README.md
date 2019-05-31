@@ -1,6 +1,6 @@
 ## The issue
 
-Develop [vending machine](https://en.wikipedia.org/wiki/Vending_machine) using ReactJS and any others technologies accodring you preferences. 
+Develop [vending machine](https://en.wikipedia.org/wiki/Vending_machine) using ReactJS and any other technologies accodring you preferences. 
 The machine can accept any currency and sell any products. The machine should be controlled via API and response base commands: (like `pay` or `selectProduct`).
 
 Main goals:
@@ -26,7 +26,7 @@ You can separate your work via commits, sending pull requests. There is no deadl
 
 ## Getting started
 
-How probably you noticed it is a complex task. We want to understand, could we communicate to achieve our team goals.
+How probably you noticed it is a complex task. We want to understand, could we communicate to achieve our team goals?
 
 Don't hesitate document your solutions and ask questions (PR or issue):
 

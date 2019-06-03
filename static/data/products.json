@@ -1,0 +1,37 @@
+[
+  {
+    "id": "product-1",
+    "title": "Coca-Cola",
+    "quantity": 5,
+    "price": 20,
+    "picture": "https://pizzaman.ru/image/cache/data/3j2gpO-760x440.png"
+  },
+  {
+    "id": "product-2",
+    "title": "Lays",
+    "quantity": 3,
+    "price": 11,
+    "picture": "https://www.auchan.ru/pokupki/media/catalog/product/cache/1/image/774x585/040ec09b1e35df139433887a97daa66f/2/9/294670_2.jpg"
+  },
+  {
+    "id": "product-3",
+    "title": "Snickers",
+    "quantity": 5,
+    "price": 8,
+    "picture": "https://www.komus.ru/medias/sys_master/root/h9c/hcd/9459263963166.jpg"
+  },
+  {
+    "id": "product-4",
+    "title": "Bounty",
+    "quantity": 3,
+    "price": 7,
+    "picture": "https://www.sladok.com.ua/wp-content/uploads/2016/09/1-bounty-41%D0%B3.jpg"
+  },
+  {
+    "id": "product-5",
+    "title": "Mars",
+    "quantity": 9,
+    "price": 7,
+    "picture": "https://5.imimg.com/data5/DH/AP/MY-41081178/mars-chocolate-bar-500x500.jpg"
+  }
+]

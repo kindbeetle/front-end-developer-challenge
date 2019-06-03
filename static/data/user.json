@@ -1,0 +1,12 @@
+{
+  "email": "john@doe.com",
+  "profile": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": "33"
+  },
+  "funds": {
+    "USD": 70,
+    "EUR": 5
+  }
+}

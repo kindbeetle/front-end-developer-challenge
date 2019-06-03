@@ -1,0 +1,29 @@
+[
+  {
+    "id": "home",
+    "title": "Home",
+    "href": "/"
+  },
+  {
+    "id": "vending-machine",
+    "title": "Vending Machine",
+    "href": "/vending-machine"
+  },
+  {
+    "id": "about",
+    "title": "About us",
+    "href": "",
+    "items": [
+      {
+        "id": "about-contacts",
+        "title": "Contacts",
+        "href": "#contacts"
+      },
+      {
+        "id": "about-team",
+        "title": "Team",
+        "href": "#team"
+      }
+    ]
+  }
+]

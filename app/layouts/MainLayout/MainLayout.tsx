@@ -3,9 +3,11 @@ import { SafeAreaView, StatusBar, Text } from "react-native";
 
 export const MainLayout: React.FC = ({ children }) => (
   <>
-    <StatusBar barStyle="dark-content" />
+    <StatusBar barStyle="light-content" />
     <SafeAreaView style={{ flex: 1 }}>
-      <Text style={{ fontSize: 20, alignSelf:'center', paddingVertical: 30 }}>Ultimate Vending machine</Text>
+      <Text style={{ alignSelf: "center", paddingVertical: 30, fontSize: 24, fontStyle: "italic" }}>
+        Jelly beans Vending machine
+      </Text>
       {children}
     </SafeAreaView>
   </>

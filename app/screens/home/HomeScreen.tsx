@@ -1,25 +1,40 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { observer } from "mobx-react-lite";
+import { useNavigation } from "react-navigation-hooks";
+import { connect } from "stent/lib/react";
 
-import { useStore } from "../../stores";
-import { MachineCashier, MachineDisplay, MachineProductList } from "./partials";
+import { VendingMachineHeader } from '../../components';
+import { MachineDisplay, MachineProductList } from "./partials";
+import { IVendingMachineState } from '../../services';
 
-export const HomeScreen = observer(() => {
-  const { getVendingMachine } = useStore();
+import { IProduct }from '../../models';
 
-  const vendingMachine = getVendingMachine();
-  const { balance, currencies, products, queue } = vendingMachine;
+interface HomeScreenProps {
+  state: IVendingMachineState;
+  selectProduct: (product: IProduct) => void;
+}
+const HomeScreen = observer<HomeScreenProps>(({ state, selectProduct }) => {
+  const { navigate } = useNavigation();
+  const { balance, messages, products } = state;
+  const startDeposit = () => navigate("DepositCoins");
+
+  console.log("vendingMachine state ", state);
 
   return (
     <View style={{ flex: 1, alignItems: "center", padding: 5 }}>
-      <Text style={{ fontSize: 16, paddingBottom: 10 }}>Select product:</Text>
+      <VendingMachineHeader balance={balance} onDeposit={startDeposit} />
 
-      <MachineProductList products={products} />
+      <MachineProductList products={products} onProductSelect={selectProduct} />
 
-      <MachineDisplay messages={queue} />
-
-      <MachineCashier balance={balance} currencies={currencies} />
+      <MachineDisplay messages={messages} />
     </View>
   );
 });
+
+export const ConnectedHomeScreen = connect(HomeScreen)
+  .with("vendingMachine")
+  .map((vendingMachine: any) => ({
+    state: vendingMachine.state,
+    selectProduct: vendingMachine.selectProduct
+  }));

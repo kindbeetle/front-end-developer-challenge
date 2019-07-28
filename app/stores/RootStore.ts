@@ -1,17 +1,17 @@
 import { applySnapshot, flow, types } from "mobx-state-tree";
+import { Machine } from "stent";
 
+import { vendingMachineFSM } from "../services";
 import { SettingsStore, ISettings } from "./SettingsStore";
 import { mockSettings } from "../mocks";
-import { VendingMachine } from "../services";
 import { Utils } from "../Utils";
 
-import { EAppState } from "../models";
+import { EAppState, ICash, ICurrency } from "../models";
 
 export interface IRootStore {
   state: EAppState;
   settings: ISettings;
   initApp: () => void;
-  getVendingMachine: () => VendingMachine;
 }
 
 export const RootStore = types
@@ -20,13 +20,12 @@ export const RootStore = types
     settings: types.optional(SettingsStore, {})
   })
   .actions(self => {
-    let vendingMachine: VendingMachine;
-
     const initApp = flow(function* initApp() {
       try {
         yield Utils.delay(2000);
         const settings = yield Promise.resolve(mockSettings);
-        initVendingMachineService(settings);
+
+        vendingMachineInit(settings);
         applySnapshot(self.settings, settings);
         self.state = EAppState.SUCCESS;
       } catch (error) {
@@ -35,15 +34,23 @@ export const RootStore = types
       }
     });
 
-    const initVendingMachineService = (settings: ISettings) => {
-      vendingMachine = new VendingMachine(settings);
+    const vendingMachineInit = (settings: ISettings) => {
+      const { products } = settings;
+      const balance = settings.currencies.reduce(
+        (result: ICash, currency: ICurrency) => {
+          result[currency.code] = 0;
+          return result;
+        },
+        {} as ICash
+      );
+
+      // vendingMachine API usage.
+      const vendingMachine = Machine.create("vendingMachine", vendingMachineFSM);
+      vendingMachine.init(products, balance);
+      vendingMachine.run();
     };
 
-    const getVendingMachine = () => vendingMachine;
-
     return {
-      initApp,
-      initVendingMachineService,
-      getVendingMachine
+      initApp
     };
   });

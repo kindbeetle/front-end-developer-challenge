@@ -3,16 +3,16 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import { observer } from "mobx-react-lite";
 
 import { useStore } from "../stores";
-import { HomeScreen } from "./home";
-import { ProductDetailsScreen } from "./product";
+import { ConnectedHomeScreen } from "./home";
+import { ConnectedDepositCoinsScreen } from "./deposit";
 import { ErrorView, LoadingView, MainLayout } from "../layouts";
 
 import { EAppState } from "../models";
 
 const MainNavigator = createStackNavigator(
   {
-    Home: { screen: HomeScreen },
-    ProductDetails: { screen: ProductDetailsScreen }
+    Home: { screen: ConnectedHomeScreen },
+    DepositCoins: { screen: ConnectedDepositCoinsScreen }
   },
   {
     initialRouteName: "Home",

@@ -4,4 +4,6 @@ export class Utils {
   };
 
   public static logError = (...e: string[]) => console.log(...e);
+
+  public static noop = () => {};
 }

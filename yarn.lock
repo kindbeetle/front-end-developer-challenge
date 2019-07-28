@@ -5314,6 +5314,11 @@ react-navigation-drawer@~1.2.1:
   dependencies:
     react-native-tab-view "^1.2.0"
 
+react-navigation-hooks@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-navigation-hooks/-/react-navigation-hooks-1.0.1.tgz#f8bc2061c31026b14162943650946df715a9ae57"
+  integrity sha512-CUnnzrDlLB+OLYQwlY90T4/Bnlq5EbVnSdenrC+29JUgR5cys50ZL+ixQjArVSv5aiuyyQ68Fo4tF0ru3sFt8Q==
+
 react-navigation-stack@~1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/react-navigation-stack/-/react-navigation-stack-1.4.0.tgz#69cdb029ea4ee5877d7e933b3117dc90bc841eb2"
@@ -6018,6 +6023,11 @@ stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+
+stent@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/stent/-/stent-6.0.1.tgz#6e06cecb17addf59253dab6ee082707fdf29b9a8"
+  integrity sha512-Kr16xVCBECOEWtIXhP15HASUYWD2H+arZs5e0JcCHAhoin8OGC9Bxk2EMCRwv5BAQqYVd7uQQ1qchyqaVCAiZg==
 
 stream-buffers@~2.2.0:
   version "2.2.0"

@@ -8,6 +8,7 @@
     "lib": ["es2017", "es6"],
     "moduleResolution": "node",
     "noEmit": true,
+    "typeRoots": ["node_modules/@types", "@types"],
     "strict": true,
     "noImplicitReturns": true,
     "target": "esnext"

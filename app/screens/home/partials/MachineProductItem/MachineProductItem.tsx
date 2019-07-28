@@ -1,15 +1,21 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { IProduct } from "../../../../models";
 
 interface MachineProductItemProps {
   product: IProduct;
+  onProductSelect: () => void;
 }
-export const MachineProductItem: React.FC<MachineProductItemProps> = ({ product }) => (
-  <View style={{ width: '45%', borderWidth: 1, margin: 5 }}>
-    <Text>{product.name}</Text>
-    <Text>{product.description}</Text>
-    <Text>price: {product.price.USD}$</Text>
-    <Text>price: {product.price.EUR}Euro</Text>
-  </View>
-);
+export const MachineProductItem: React.FC<MachineProductItemProps> = ({ product, onProductSelect }) => {
+  return (
+    <TouchableOpacity
+      style={{ width: "49%", borderWidth: 1, borderRadius: 10, padding: 5, marginBottom: 5 }}
+      onPress={onProductSelect}
+    >
+      <Text style={{ marginBottom: 10, fontSize: 20 }}>{product.name}</Text>
+      <Text style={{ marginBottom: 5, fontSize: 16 }}>{product.quantity > 0 ? product.quantity : "not"} available</Text>
+      <Text>{product.price.USD}$</Text>
+      <Text>{product.price.EUR}€</Text>
+    </TouchableOpacity>
+  );
+};

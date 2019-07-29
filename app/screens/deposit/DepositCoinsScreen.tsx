@@ -8,31 +8,34 @@ import { VendingMachineHeader } from "../../components";
 import { VirtualCoinMarket, DepositCoinsFooter } from "./partials";
 
 import { ECurrencyCode } from "../../models";
-import { IVendingMachineState } from '../../services';
+import { IVendingMachineState, IVendingMachineService } from "../../services";
 
 interface DepositCoinsScreenProps {
   state: IVendingMachineState;
   depositCash: (currency: ECurrencyCode, amount: number) => void;
+  pay: () => void;
 }
-const DepositCoinsScreen: React.FC<DepositCoinsScreenProps> = ({ depositCash, state }) => {
+const DepositCoinsScreen: React.FC<DepositCoinsScreenProps> = ({ depositCash, pay, state }) => {
   const { navigate } = useNavigation();
   const { settings } = useStore();
-  const { balance } = state;
-  const goToHome = () => navigate("Home");
+  const { balance, selectedProduct } = state;
+  const canPay = selectedProduct && selectedProduct.id ? true : false;
+  const cancelPay = () => navigate("Home");
 
   return (
     <ScrollView contentContainerStyle={{ flex: 1, alignItems: "center", justifyContent: "space-between" }}>
       <VendingMachineHeader balance={balance} />
 
       <VirtualCoinMarket currencies={settings.currencies} depositCash={depositCash} />
-      <DepositCoinsFooter onHomeClick={goToHome} />
+      <DepositCoinsFooter canPay={canPay} onCancel={cancelPay} onSubmit={pay} />
     </ScrollView>
   );
 };
 
 export const ConnectedDepositCoinsScreen = connect(DepositCoinsScreen)
   .with("vendingMachine")
-  .map((vendingMachine: any) => ({
+  .map((vendingMachine: IVendingMachineService) => ({
     state: vendingMachine.state,
-    depositCash: vendingMachine.depositCash
+    depositCash: vendingMachine.depositCash,
+    pay: vendingMachine.pay
   }));

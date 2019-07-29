@@ -1,7 +1,6 @@
 import { applySnapshot, flow, types } from "mobx-state-tree";
-import { Machine } from "stent";
 
-import { vendingMachineFSM } from "../services";
+import { vendingMachineService } from "../services";
 import { SettingsStore, ISettings } from "./SettingsStore";
 import { mockSettings } from "../mocks";
 import { Utils } from "../Utils";
@@ -45,9 +44,8 @@ export const RootStore = types
       );
 
       // vendingMachine API usage.
-      const vendingMachine = Machine.create("vendingMachine", vendingMachineFSM);
-      vendingMachine.init(products, balance);
-      vendingMachine.run();
+      vendingMachineService.configure(products, balance);
+      vendingMachineService.run();
     };
 
     return {

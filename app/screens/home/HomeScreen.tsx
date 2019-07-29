@@ -6,7 +6,7 @@ import { connect } from "stent/lib/react";
 
 import { VendingMachineHeader } from '../../components';
 import { MachineDisplay, MachineProductList } from "./partials";
-import { IVendingMachineState } from '../../services';
+import { IVendingMachineState, IVendingMachineService } from '../../services';
 
 import { IProduct }from '../../models';
 
@@ -34,7 +34,7 @@ const HomeScreen = observer<HomeScreenProps>(({ state, selectProduct }) => {
 
 export const ConnectedHomeScreen = connect(HomeScreen)
   .with("vendingMachine")
-  .map((vendingMachine: any) => ({
+  .map((vendingMachine: IVendingMachineService) => ({
     state: vendingMachine.state,
     selectProduct: vendingMachine.selectProduct
   }));

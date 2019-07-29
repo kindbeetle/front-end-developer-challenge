@@ -1,1 +1,1 @@
-export * from './VendingMachineService';
+export * from './vendingMachineService';

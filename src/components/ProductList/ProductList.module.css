@@ -1,4 +1,4 @@
-.product-list--wrapper {
+.productListWrapper {
     box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
@@ -9,7 +9,7 @@
     max-width: 940px;
 }
 
-.product-list--item {
+.productListItem {
     list-style: none;
     box-sizing: border-box;
     width: 25%;

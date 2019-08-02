@@ -1,13 +1,13 @@
 import React from 'react';
 
 import ItemProduct from "components/ItemProduct";
-import './styles.css';
+import styles from './ProductList.module.css';
 
 const ProductList = ({ items }) => {
   return (
-    <ul className="product-list--wrapper">
+    <ul className={styles.productListWrapper}>
       {items.map(id => (
-        <li className="product-list--item" key={id}>
+        <li className={styles.productListItem} key={id}>
           <ItemProduct id={id}/>
         </li>
       ))}

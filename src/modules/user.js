@@ -8,7 +8,7 @@ import { CURRENCY } from 'constants/finance';
 
 const initializeState = {
   email: null,
-  deposit: 500,
+  deposit: 0,
   currency: CURRENCY.USD.code,
   productIds: [],
 };

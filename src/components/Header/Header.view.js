@@ -1,21 +1,20 @@
 import React from 'react';
-import { CURRENCY } from 'constants/finance';
-import './styles.css';
+import {CURRENCY} from 'constants/finance';
+import cn from 'classnames';
+import styles from './Header.module.css';
 
-const HeaderView = ({ count, currency, totalCost, onPay, onDeposit }) => {
+const HeaderView = ({count, currency, totalCost, onPay, onDeposit}) => {
   return (
-    <header className="header--wrapper">
-      <div className="header--container-center">
-        <button className="header--btn-base header--submit-btn" disabled={count === 0} onClick={onPay}>
+    <header className={styles.headerWrapper}>
+      <div className={styles.headerContainerCenter}>
+        <button className={cn(styles.headerBtnBase, styles.headerSubmitBtn)} disabled={count === 0} onClick={onPay}>
           Pay
         </button>
-        <div className="header--details-wrapper">
-        <span className="header--details-content">
-          {count} 🛒 = {totalCost}${CURRENCY[currency].short}
-        </span>
-        </div>
-        <button className="header--btn-base header--deposit-btn" onClick={onDeposit}>
-          Deposit Money
+        <span className={styles.headerDetailsContent}>
+            {count} 🛒 = {totalCost}${CURRENCY[currency].short}
+          </span>
+        <button className={cn(styles.headerBtnBase, styles.headerDepositBtn)} onClick={onDeposit}>
+          Add Money
         </button>
       </div>
     </header>

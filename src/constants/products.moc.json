@@ -1,0 +1,265 @@
+{
+  "response": {
+    "display": "Men",
+    "items": [
+      {
+        "display": "Shoes",
+        "spots": [
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw62703169/zoom/CG6465_00_plp_standard.jpg"
+              }
+            },
+            "display": "New Arrivals",
+            "id": "CG6465",
+            "cost": "100"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dwa9b30bba/zoom/DB3198_00_plp_standard.jpg"
+              }
+            },
+            "display": "Best Sellers",
+            "id": "DB3198",
+            "cost": "120"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw62703169/zoom/CG6465_00_plp_standard.jpg"
+              }
+            },
+            "display": "Originals",
+            "id": "CG6465",
+            "cost": "110"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dwc1f3f263/zoom/F36193_00_plp_standard.jpg"
+              }
+            },
+            "display": "Running",
+            "id": "F36193",
+            "cost": "180"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw79cdf123/zoom/G26308_00_plp_standard.jpg"
+              }
+            },
+            "display": "Soccer",
+            "id": "G26308",
+            "cost": "150"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw2e66160b/zoom/G28376_00_plp_standard.jpg"
+              }
+            },
+            "display": "Basketball",
+            "id": "G28376",
+            "cost": "120"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dwff21007c/zoom/BD7159_00_plp_standard.jpg"
+              }
+            },
+            "display": "Workout",
+            "id": "BD7159",
+            "cost": "120"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw0abe789e/zoom/F34455_00_plp_standard.jpg"
+              }
+            },
+            "display": "Essentials",
+            "id": "F34455",
+            "cost": "80"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dwab008730/zoom/B37334_00_plp_standard.jpg"
+              }
+            },
+            "display": "Football",
+            "id": "B37334",
+            "cost": "70"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw5dc05a50/zoom/F35580_00_plp_standard.jpg"
+              }
+            },
+            "display": "Sandals & Slides",
+            "id": "F35580",
+            "cost": "200"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/dw46b02976/zoom/BB7743_00_plp_standard.jpg"
+              }
+            },
+            "display": "Hiking",
+            "id": "BB7743",
+            "cost": "120"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw5828e2d9/zoom/G26295_00_plp_standard.jpg"
+              }
+            },
+            "display": "Tennis",
+            "id": "G26295",
+            "cost": "105"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dweeb6abbe/zoom/DB3506_00_plp_standard.jpg"
+              }
+            },
+            "display": "Skateboarding",
+            "id": "DB3506",
+            "cost": "177"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw24c882a9/zoom/B76034_00_plp_standard.jpg"
+              }
+            },
+            "display": "Baseball",
+            "id": "B76034",
+            "cost": "80"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dwa66a6706/zoom/BB7819_00_plp_standard.jpg"
+              }
+            },
+            "display": "Golf",
+            "id": "BB7819",
+            "cost": "90"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw79cdf123/zoom/G26308_00_plp_standard.jpg"
+              }
+            },
+            "display": "All Shoes",
+            "id": "G26308",
+            "cost": "60"
+          }
+        ]
+      },
+      {
+        "display": "Apparel",
+        "spots": [
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw26012c86/zoom/DU3898_000_plp_model.jpg"
+              }
+            },
+            "display": "New Arrivals"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw5c79c169/zoom/CM1309_000_plp_model.jpg"
+              }
+            },
+            "display": "Best Sellers"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dwbff2f164/zoom/DV1976_plp_white_laydown.jpg"
+              }
+            },
+            "display": "Pants & Tights"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dwe77956f0/zoom/DU8370_000_plp_model.jpg"
+              }
+            },
+            "display": "Hoodies & Sweatshirts"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dwff92521c/zoom/DQ2517_000_plp_model.jpg"
+              }
+            },
+            "display": "Jackets"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dwb1cc4625/zoom/DT3436_000_plp_model.jpg"
+              }
+            },
+            "display": "Short Sleeve Shirts"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw163c1663/zoom/DU1128_000_plp_model.jpg"
+              }
+            },
+            "display": "Graphic T Shirts"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw8a6a71ac/zoom/DT4368_000_plp_model.jpg"
+              }
+            },
+            "display": "Long Sleeve Shirts"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw27a9ea14/zoom/DZ8018_01_laydown.jpg"
+              }
+            },
+            "display": "Jerseys"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw20ffb044/zoom/DP4319_000_plp_model.jpg"
+              }
+            },
+            "display": "Tank Tops"
+          },
+          {
+            "_links": {
+              "image": {
+                "href": "https://www.adidas.com/dis/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/default/dw245b8d26/zoom/DZ5706_21_model.jpg"
+              }
+            },
+            "display": "Shorts"
+          }
+        ]
+      }
+    ]
+  }
+}

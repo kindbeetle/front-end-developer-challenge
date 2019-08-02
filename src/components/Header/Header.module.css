@@ -1,0 +1,53 @@
+.headerWrapper {
+    position: relative;
+    box-sizing: border-box;
+    background: #ebebed;
+    border-bottom: 4px solid #19617e;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+.headerContainerCenter {
+    max-width: 940px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+}
+.headerBtnBase {
+    box-sizing: border-box;
+    padding: 4px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    min-width: 120px;
+    cursor: pointer;
+}
+.headerBtnBase:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+.headerBtnBase:focus {
+    outline: none;
+}
+.headerSubmitBtn {
+    background: #4A90E2;
+    color: #FFF;
+    border-color: #3567a1;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.headerDepositBtn {
+    background: #4bd18c;
+    color: #FFF;
+    border-color: #289a57;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.headerDetailsContent {
+    font-size: 12px;
+    color: #2e2e2e;
+}
+.headerDetailsContentBold {
+    font-weight: 800;
+}

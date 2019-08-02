@@ -1,38 +1,68 @@
-## Проблема
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Создать [вендинговый автомат](https://en.wikipedia.org/wiki/Vending_machine) используя ReactJS и любые другие технологии по собственному усмотрению. Автомат может принимать любую валюту и продавать любые товары. Автомат должен управляться через API и отвечать на базовые команды (такие как `pay` или `selectProduct`).
+## Available Scripts
 
-Основые цели:
+In the project directory, you can run:
 
-1. Спроектировать базовую модель данных, необходимую для реализации MVP.
-2. Запрототипировать, без фанатизма, UI, который позволит использовать базовые функции автомата.
-3. Создать как минимум одно UI-взаимодействие, которое пользователь ожидает от взаимодействия с подобной машиной. 
+### `npm start`
 
-Что не требуется:
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-1. Написание бэкэнда API (любые нужные данные можно замокать).
-2. Персистентность (все можно хранить в памяти и очищать по рефрешу страницы).
-3. Полная реализация машины. Достаточно одного-двух действий.
-4. Юнит-тесты. Но если очень хочется, то можно :-)
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-Работу можно коммитить частями, посылая пулл-реквесты. Время не ограничено. Если есть вопросы — можно открыть issue в репозитории и задать их.
+### `npm test`
 
-## Что мы хотим понять
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-* Продуманность решений с учетом требований.
-* Простота и надежность.
-* Умение задавать вопросы и получать ответы.
+### `npm run build`
 
-## С чего начать
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Как ты вероятно заметил, это достаточно комплексное задание. Нам важно понять, сможем ли мы коммуницировать на нужном для эффективной команды уровне.
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-Не стесняйся документировать свои решения и задавать вопросы (в виде PR или issue):
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-* Какие были выбраны фреймворки/библиотеки и почему?
-* На какой функциональности было принято решение сосредоточить усилия? Какую опустить? Почему?
-* Что еще способствовало выбору определенных архитектурных решений?
-* Что осталось не ясно?
-* Какие предположения были сделаны из-за недостатка информации?
+### `npm run eject`
 
-Удачи :-)
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
